@@ -153,6 +153,18 @@ required>
 type="email"
 name="email"
 placeholder="Email Address"
+<form id="contactForm">
+
+<input
+type="text"
+name="name"
+placeholder="Your Name"
+required>
+
+<input
+type="email"
+name="email"
+placeholder="Email Address"
 required>
 
 <textarea
@@ -161,6 +173,19 @@ rows="5"
 placeholder="Tell us about your project"
 required></textarea>
 
+<button type="submit">
+Send Inquiry
+</button>
+
+</form>
+
+<div id="successPopup" class="popup">
+    <div class="popup-content">
+        <h3>✓ Enquiry Submitted</h3>
+        <p>Thank you for contacting Stealme Designs. We will get back to you shortly.</p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+</div>
 <input type="hidden" name="_subject" value="New Website Inquiry - Stealme Designs">
 
 <input type="hidden" name="_captcha" value="false">
