@@ -2,27 +2,39 @@ window.onload = () => {
 console.log("Stealme Designs Website Loaded Successfully");
 };
 const form = document.getElementById('contactForm');
+const toast = document.getElementById('toast');
 
-form.addEventListener('submit', async function(e){
+form.addEventListener('submit', async function(e) {
 
-e.preventDefault();
+    e.preventDefault();
 
-const formData = new FormData(form);
+    const formData = new FormData(form);
 
-await fetch(
-'https://formsubmit.co/ajax/stealmedesigns15@gmail.com',
-{
-method:'POST',
-body:formData
-}
-);
+    try {
 
-document.getElementById('successPopup').style.display='flex';
+        const response = await fetch(
+            'https://formsubmit.co/ajax/stealmedesigns15@gmail.com',
+            {
+                method: 'POST',
+                body: formData
+            }
+        );
 
-form.reset();
+        if (response.ok) {
+
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+
+            form.reset();
+        }
+
+    } catch (error) {
+
+        alert('Something went wrong. Please try again.');
+
+    }
 
 });
-
-function closePopup(){
-document.getElementById('successPopup').style.display='none';
-}
