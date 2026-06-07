@@ -1,10 +1,10 @@
 window.onload = () => {
 console.log("Stealme Designs Website Loaded Successfully");
 };
-const form = document.getElementById('contactForm');
-const toast = document.getElementById('toast');
+const form = document.getElementById("contactForm");
+const toast = document.getElementById("toast");
 
-form.addEventListener('submit', async function(e) {
+form.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
@@ -13,27 +13,28 @@ form.addEventListener('submit', async function(e) {
     try {
 
         const response = await fetch(
-            'https://formsubmit.co/ajax/stealmedesigns15@gmail.com',
+            "https://formsubmit.co/ajax/stealmedesigns15@gmail.com",
             {
-                method: 'POST',
+                method: "POST",
                 body: formData
             }
         );
 
         if (response.ok) {
 
-            toast.classList.add('show');
+            toast.classList.add("show");
 
             setTimeout(() => {
-                toast.classList.remove('show');
+                toast.classList.remove("show");
             }, 3000);
 
             form.reset();
+
         }
 
-    } catch (error) {
+    } catch (err) {
 
-        alert('Something went wrong. Please try again.');
+        console.error(err);
 
     }
 
