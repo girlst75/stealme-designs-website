@@ -31,10 +31,5 @@ form.addEventListener('submit', async function(e) {
             form.reset();
         }
 
-    } catch (error) {
-
-        alert('Something went wrong. Please try again.');
-
-    }
-
+    } 
 });
